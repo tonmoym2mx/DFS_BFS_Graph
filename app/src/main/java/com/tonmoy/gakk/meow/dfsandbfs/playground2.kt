@@ -1,20 +1,9 @@
 /*
 package com.tonmoy.gakk.meow.dfsandbfs
-
 import java.util.*
-import kotlin.collections.ArrayList
-
-
-*/
-/*create a queue Q
-mark v as visited and put v into Q
-while Q is non-empty
-remove the head u of Q
-mark and enqueue all (unvisited) neighbours of u*//*
 
 
 fun main(){
-
     val graph = Graph(
         Vertex("Dhaka") to Vertex("Kushtia"),
         Vertex("Dhaka") to Vertex("Bogura"),
@@ -23,13 +12,9 @@ fun main(){
         Vertex("Bogura") to Vertex("Magura"),
         Vertex("Magura") to Vertex("Magura"),
     )
-
     val bfs = BreadthFirstSearch(graph)
     bfs.start(Vertex("Bogura"))
-
 }
-
-
 class BreadthFirstSearch<T>(val graph: Graph<T>){
     private val queue:Queue<Vertex<T>> = LinkedList()
     val visitedVertex:MutableMap<Vertex<T>,Boolean> = HashMap()
@@ -52,13 +37,11 @@ class BreadthFirstSearch<T>(val graph: Graph<T>){
             print("$startVertex ")
             graph.getNeighbors(startVertex).forEach { vertex ->
                 if(!isVisited(vertex)){
-                   setVisited(vertex)
-                   queue.add(vertex)
+                    setVisited(vertex)
+                    queue.add(vertex)
                 }
             }
         }
-
-
         println("\nVisited Vertex are : ${visitedVertex.map { it.key.data }}")
     }
 }
